@@ -190,16 +190,12 @@ class ApiClient {
           break;
         case 'double':
           return value is double ? value : double.parse('$value');
-        case 'Favorite':
-          return Favorite.fromJson(value);
         case 'FavoriteDto':
           return FavoriteDto.fromJson(value);
         case 'FavoriteUrlDto':
           return FavoriteUrlDto.fromJson(value);
         case 'IsFavoriteDto':
           return IsFavoriteDto.fromJson(value);
-        case 'User':
-          return User.fromJson(value);
         case 'UserDto':
           return UserDto.fromJson(value);
         case 'UserWithFavoritesDto':

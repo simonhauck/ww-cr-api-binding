@@ -70,11 +70,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [Favorite](doc\/Favorite.md)
  - [FavoriteDto](doc\/FavoriteDto.md)
  - [FavoriteUrlDto](doc\/FavoriteUrlDto.md)
  - [IsFavoriteDto](doc\/IsFavoriteDto.md)
- - [User](doc\/User.md)
  - [UserDto](doc\/UserDto.md)
  - [UserWithFavoritesDto](doc\/UserWithFavoritesDto.md)
  - [WebPage](doc\/WebPage.md)

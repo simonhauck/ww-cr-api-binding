@@ -25,7 +25,7 @@ void main() {
 
     // Create a new user
     //
-    //Future<User> createUser() async
+    //Future<UserWithFavoritesDto> createUser() async
     test('test createUser', () async {
       // TODO
     });

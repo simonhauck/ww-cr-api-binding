@@ -110,7 +110,7 @@ class UserControllerApi {
   }
 
   /// Create a new user
-  Future<User> createUser() async {
+  Future<UserWithFavoritesDto> createUser() async {
     final response = await createUserWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -119,9 +119,9 @@ class UserControllerApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'User',) as User;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserWithFavoritesDto',) as UserWithFavoritesDto;
         }
-    return Future<User>.value(null);
+    return Future<UserWithFavoritesDto>.value(null);
   }
 
   /// Delete a link as favorite

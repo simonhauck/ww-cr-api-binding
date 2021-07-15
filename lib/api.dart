@@ -29,11 +29,9 @@ part 'auth/http_bearer_auth.dart';
 part 'api/user_controller_api.dart';
 part 'api/web_page_controller_api.dart';
 
-part 'model/favorite.dart';
 part 'model/favorite_dto.dart';
 part 'model/favorite_url_dto.dart';
 part 'model/is_favorite_dto.dart';
-part 'model/user.dart';
 part 'model/user_dto.dart';
 part 'model/user_with_favorites_dto.dart';
 part 'model/web_page.dart';

@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createUser**
-> User createUser()
+> UserWithFavoritesDto createUser()
 
 Create a new user
 
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**User**](User.md)
+[**UserWithFavoritesDto**](UserWithFavoritesDto.md)
 
 ### Authorization
 
