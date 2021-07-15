@@ -1,69 +1,71 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+part of openapi.api;
 
-part 'web_page_url_dto.g.dart';
+class WebPageUrlDto {
+  /// Returns a new [WebPageUrlDto] instance.
+  WebPageUrlDto({
+    this.url,
+  });
 
-abstract class WebPageUrlDto implements Built<WebPageUrlDto, WebPageUrlDtoBuilder> {
+  String url;
 
-    @nullable
-    @BuiltValueField(wireName: r'url')
-    String get url;
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is WebPageUrlDto &&
+     other.url == url;
 
-    WebPageUrlDto._();
+  @override
+  int get hashCode =>
+    (url == null ? 0 : url.hashCode);
 
-    static void _initializeBuilder(WebPageUrlDtoBuilder b) => b;
+  @override
+  String toString() => 'WebPageUrlDto[url=$url]';
 
-    factory WebPageUrlDto([void updates(WebPageUrlDtoBuilder b)]) = _$WebPageUrlDto;
-
-    @BuiltValueSerializer(custom: true)
-    static Serializer<WebPageUrlDto> get serializer => _$WebPageUrlDtoSerializer();
-}
-
-class _$WebPageUrlDtoSerializer implements StructuredSerializer<WebPageUrlDto> {
-
-    @override
-    final Iterable<Type> types = const [WebPageUrlDto, _$WebPageUrlDto];
-    @override
-    final String wireName = r'WebPageUrlDto';
-
-    @override
-    Iterable<Object> serialize(Serializers serializers, WebPageUrlDto object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object>[];
-        if (object.url != null) {
-            result
-                ..add(r'url')
-                ..add(serializers.serialize(object.url,
-                    specifiedType: const FullType(String)));
-        }
-        return result;
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    if (url != null) {
+      json[r'url'] = url;
     }
+    return json;
+  }
 
-    @override
-    WebPageUrlDto deserialize(Serializers serializers, Iterable<Object> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = WebPageUrlDtoBuilder();
+  /// Returns a new [WebPageUrlDto] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static WebPageUrlDto fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : WebPageUrlDto(
+        url: json[r'url'],
+    );
 
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final dynamic value = iterator.current;
-            switch (key) {
-                case r'url':
-                    result.url = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-            }
-        }
-        return result.build();
+  static List<WebPageUrlDto> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <WebPageUrlDto>[]
+      : json.map((dynamic value) => WebPageUrlDto.fromJson(value)).toList(growable: true == growable);
+
+  static Map<String, WebPageUrlDto> mapFromJson(Map<String, dynamic> json) {
+    final map = <String, WebPageUrlDto>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) => map[key] = WebPageUrlDto.fromJson(value));
     }
+    return map;
+  }
+
+  // maps a json object with a list of WebPageUrlDto-objects as value to a dart map
+  static Map<String, List<WebPageUrlDto>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<WebPageUrlDto>>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) {
+        map[key] = WebPageUrlDto.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
+      });
+    }
+    return map;
+  }
 }
 

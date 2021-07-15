@@ -1,127 +1,111 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:built_collection/built_collection.dart';
-import 'package:openapi/model/favorite.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+part of openapi.api;
 
-part 'user.g.dart';
+class User {
+  /// Returns a new [User] instance.
+  User({
+    this.id,
+    this.secret,
+    this.createdAt,
+    this.updatedAt,
+    this.favorites = const [],
+  });
 
-abstract class User implements Built<User, UserBuilder> {
+  int id;
 
-    @nullable
-    @BuiltValueField(wireName: r'id')
-    int get id;
+  String secret;
 
-    @nullable
-    @BuiltValueField(wireName: r'secret')
-    String get secret;
+  DateTime createdAt;
 
-    @nullable
-    @BuiltValueField(wireName: r'createdAt')
-    DateTime get createdAt;
+  DateTime updatedAt;
 
-    @nullable
-    @BuiltValueField(wireName: r'updatedAt')
-    DateTime get updatedAt;
+  List<Favorite> favorites;
 
-    @nullable
-    @BuiltValueField(wireName: r'favorites')
-    BuiltList<Favorite> get favorites;
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is User &&
+     other.id == id &&
+     other.secret == secret &&
+     other.createdAt == createdAt &&
+     other.updatedAt == updatedAt &&
+     other.favorites == favorites;
 
-    User._();
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (secret == null ? 0 : secret.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (updatedAt == null ? 0 : updatedAt.hashCode) +
+    (favorites == null ? 0 : favorites.hashCode);
 
-    static void _initializeBuilder(UserBuilder b) => b;
+  @override
+  String toString() => 'User[id=$id, secret=$secret, createdAt=$createdAt, updatedAt=$updatedAt, favorites=$favorites]';
 
-    factory User([void updates(UserBuilder b)]) = _$User;
-
-    @BuiltValueSerializer(custom: true)
-    static Serializer<User> get serializer => _$UserSerializer();
-}
-
-class _$UserSerializer implements StructuredSerializer<User> {
-
-    @override
-    final Iterable<Type> types = const [User, _$User];
-    @override
-    final String wireName = r'User';
-
-    @override
-    Iterable<Object> serialize(Serializers serializers, User object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object>[];
-        if (object.id != null) {
-            result
-                ..add(r'id')
-                ..add(serializers.serialize(object.id,
-                    specifiedType: const FullType(int)));
-        }
-        if (object.secret != null) {
-            result
-                ..add(r'secret')
-                ..add(serializers.serialize(object.secret,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.createdAt != null) {
-            result
-                ..add(r'createdAt')
-                ..add(serializers.serialize(object.createdAt,
-                    specifiedType: const FullType(DateTime)));
-        }
-        if (object.updatedAt != null) {
-            result
-                ..add(r'updatedAt')
-                ..add(serializers.serialize(object.updatedAt,
-                    specifiedType: const FullType(DateTime)));
-        }
-        if (object.favorites != null) {
-            result
-                ..add(r'favorites')
-                ..add(serializers.serialize(object.favorites,
-                    specifiedType: const FullType(BuiltList, [FullType(Favorite)])));
-        }
-        return result;
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    if (id != null) {
+      json[r'id'] = id;
     }
-
-    @override
-    User deserialize(Serializers serializers, Iterable<Object> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = UserBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final dynamic value = iterator.current;
-            switch (key) {
-                case r'id':
-                    result.id = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    break;
-                case r'secret':
-                    result.secret = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-                case r'createdAt':
-                    result.createdAt = serializers.deserialize(value,
-                        specifiedType: const FullType(DateTime)) as DateTime;
-                    break;
-                case r'updatedAt':
-                    result.updatedAt = serializers.deserialize(value,
-                        specifiedType: const FullType(DateTime)) as DateTime;
-                    break;
-                case r'favorites':
-                    result.favorites.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(BuiltList, [FullType(Favorite)])) as BuiltList<Favorite>);
-                    break;
-            }
-        }
-        return result.build();
+    if (secret != null) {
+      json[r'secret'] = secret;
     }
+    if (createdAt != null) {
+      json[r'createdAt'] = createdAt.toUtc().toIso8601String();
+    }
+    if (updatedAt != null) {
+      json[r'updatedAt'] = updatedAt.toUtc().toIso8601String();
+    }
+    if (favorites != null) {
+      json[r'favorites'] = favorites;
+    }
+    return json;
+  }
+
+  /// Returns a new [User] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static User fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : User(
+        id: json[r'id'],
+        secret: json[r'secret'],
+        createdAt: json[r'createdAt'] == null
+          ? null
+          : DateTime.parse(json[r'createdAt']),
+        updatedAt: json[r'updatedAt'] == null
+          ? null
+          : DateTime.parse(json[r'updatedAt']),
+        favorites: Favorite.listFromJson(json[r'favorites']),
+    );
+
+  static List<User> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <User>[]
+      : json.map((dynamic value) => User.fromJson(value)).toList(growable: true == growable);
+
+  static Map<String, User> mapFromJson(Map<String, dynamic> json) {
+    final map = <String, User>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) => map[key] = User.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of User-objects as value to a dart map
+  static Map<String, List<User>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<User>>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) {
+        map[key] = User.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
+      });
+    }
+    return map;
+  }
 }
 

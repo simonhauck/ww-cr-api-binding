@@ -1,86 +1,80 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:built_collection/built_collection.dart';
-import 'package:openapi/model/user_dto.dart';
-import 'package:openapi/model/favorite_dto.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+part of openapi.api;
 
-part 'user_with_favorites_dto.g.dart';
+class UserWithFavoritesDto {
+  /// Returns a new [UserWithFavoritesDto] instance.
+  UserWithFavoritesDto({
+    this.user,
+    this.favorites = const [],
+  });
 
-abstract class UserWithFavoritesDto implements Built<UserWithFavoritesDto, UserWithFavoritesDtoBuilder> {
+  UserDto user;
 
-    @nullable
-    @BuiltValueField(wireName: r'user')
-    UserDto get user;
+  List<FavoriteDto> favorites;
 
-    @nullable
-    @BuiltValueField(wireName: r'favorites')
-    BuiltList<FavoriteDto> get favorites;
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is UserWithFavoritesDto &&
+     other.user == user &&
+     other.favorites == favorites;
 
-    UserWithFavoritesDto._();
+  @override
+  int get hashCode =>
+    (user == null ? 0 : user.hashCode) +
+    (favorites == null ? 0 : favorites.hashCode);
 
-    static void _initializeBuilder(UserWithFavoritesDtoBuilder b) => b;
+  @override
+  String toString() => 'UserWithFavoritesDto[user=$user, favorites=$favorites]';
 
-    factory UserWithFavoritesDto([void updates(UserWithFavoritesDtoBuilder b)]) = _$UserWithFavoritesDto;
-
-    @BuiltValueSerializer(custom: true)
-    static Serializer<UserWithFavoritesDto> get serializer => _$UserWithFavoritesDtoSerializer();
-}
-
-class _$UserWithFavoritesDtoSerializer implements StructuredSerializer<UserWithFavoritesDto> {
-
-    @override
-    final Iterable<Type> types = const [UserWithFavoritesDto, _$UserWithFavoritesDto];
-    @override
-    final String wireName = r'UserWithFavoritesDto';
-
-    @override
-    Iterable<Object> serialize(Serializers serializers, UserWithFavoritesDto object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object>[];
-        if (object.user != null) {
-            result
-                ..add(r'user')
-                ..add(serializers.serialize(object.user,
-                    specifiedType: const FullType(UserDto)));
-        }
-        if (object.favorites != null) {
-            result
-                ..add(r'favorites')
-                ..add(serializers.serialize(object.favorites,
-                    specifiedType: const FullType(BuiltList, [FullType(FavoriteDto)])));
-        }
-        return result;
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    if (user != null) {
+      json[r'user'] = user;
     }
-
-    @override
-    UserWithFavoritesDto deserialize(Serializers serializers, Iterable<Object> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = UserWithFavoritesDtoBuilder();
-
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final dynamic value = iterator.current;
-            switch (key) {
-                case r'user':
-                    result.user.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(UserDto)) as UserDto);
-                    break;
-                case r'favorites':
-                    result.favorites.replace(serializers.deserialize(value,
-                        specifiedType: const FullType(BuiltList, [FullType(FavoriteDto)])) as BuiltList<FavoriteDto>);
-                    break;
-            }
-        }
-        return result.build();
+    if (favorites != null) {
+      json[r'favorites'] = favorites;
     }
+    return json;
+  }
+
+  /// Returns a new [UserWithFavoritesDto] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static UserWithFavoritesDto fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : UserWithFavoritesDto(
+        user: UserDto.fromJson(json[r'user']),
+        favorites: FavoriteDto.listFromJson(json[r'favorites']),
+    );
+
+  static List<UserWithFavoritesDto> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <UserWithFavoritesDto>[]
+      : json.map((dynamic value) => UserWithFavoritesDto.fromJson(value)).toList(growable: true == growable);
+
+  static Map<String, UserWithFavoritesDto> mapFromJson(Map<String, dynamic> json) {
+    final map = <String, UserWithFavoritesDto>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) => map[key] = UserWithFavoritesDto.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of UserWithFavoritesDto-objects as value to a dart map
+  static Map<String, List<UserWithFavoritesDto>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<UserWithFavoritesDto>>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) {
+        map[key] = UserWithFavoritesDto.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
+      });
+    }
+    return map;
+  }
 }
 

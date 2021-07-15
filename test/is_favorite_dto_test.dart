@@ -1,19 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:openapi/model/is_favorite_dto.dart';
+import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for IsFavoriteDto
 void main() {
-  final instance = IsFavoriteDtoBuilder();
-  // TODO add properties to the builder and call build()
+  final instance = IsFavoriteDto();
 
-  group(IsFavoriteDto, () {
+  group('test IsFavoriteDto', () {
     // String status
     test('to test the property `status`', () async {
       // TODO

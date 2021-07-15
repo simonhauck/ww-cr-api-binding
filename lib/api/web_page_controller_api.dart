@@ -1,125 +1,118 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'dart:async';
-import 'package:dio/dio.dart';
-import 'package:built_value/serializer.dart';
+part of openapi.api;
 
-import 'package:built_collection/built_collection.dart';
-import 'package:openapi/model/web_page.dart';
-import 'package:openapi/model/web_page_url_dto.dart';
 
 class WebPageControllerApi {
+  WebPageControllerApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  final Dio _dio;
+  final ApiClient apiClient;
 
-  final Serializers _serializers;
-
-  const WebPageControllerApi(this._dio, this._serializers);
-
-  /// 
+  /// Performs an HTTP 'POST /webpage' operation and returns the [Response].
+  /// Parameters:
   ///
-  /// 
-  Future<Response<void>> indexNewPage(
-    WebPageUrlDto webPageUrlDto, { 
-    CancelToken cancelToken,
-    Map<String, dynamic> headers,
-    Map<String, dynamic> extra,
-    ValidateStatus validateStatus,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
-  }) async {
-    final _request = RequestOptions(
-      path: r'/webpage',
-      method: 'POST',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-      contentType: 'application/json',
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
+  /// * [WebPageUrlDto] webPageUrlDto (required):
+  Future<Response> indexNewPageWithHttpInfo(WebPageUrlDto webPageUrlDto) async {
+    // Verify required params are set.
+    if (webPageUrlDto == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: webPageUrlDto');
+    }
 
-    dynamic _bodyData;
+    final path = r'/webpage';
 
-    const _type = FullType(WebPageUrlDto);
-    _bodyData = _serializers.serialize(webPageUrlDto, specifiedType: _type);
+    Object postBody = webPageUrlDto;
 
-    final _response = await _dio.request<dynamic>(
-      _request.path,
-      data: _bodyData,
-      options: _request,
-    );
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    return _response;
-  }
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
 
-  /// 
-  ///
-  /// 
-  Future<Response<BuiltList<WebPage>>> searchForRecipe(
-    String title, { 
-    CancelToken cancelToken,
-    Map<String, dynamic> headers,
-    Map<String, dynamic> extra,
-    ValidateStatus validateStatus,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
-  }) async {
-    final _request = RequestOptions(
-      path: r'/webpage',
-      method: 'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      queryParameters: <String, dynamic>{
-        r'title': title,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-      contentType: 'application/json',
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
 
-    dynamic _bodyData;
-
-    final _response = await _dio.request<dynamic>(
-      _request.path,
-      data: _bodyData,
-      options: _request,
-    );
-
-    const _responseType = FullType(BuiltList, [FullType(WebPage)]);
-    final BuiltList<WebPage> _responseData = _serializers.deserialize(
-      _response.data,
-      specifiedType: _responseType,
-    ) as BuiltList<WebPage>;
-
-    return Response<BuiltList<WebPage>>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      request: _response.request,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
     );
   }
 
+  /// Parameters:
+  ///
+  /// * [WebPageUrlDto] webPageUrlDto (required):
+  Future<void> indexNewPage(WebPageUrlDto webPageUrlDto) async {
+    final response = await indexNewPageWithHttpInfo(webPageUrlDto);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Performs an HTTP 'GET /webpage' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [String] title (required):
+  Future<Response> searchForRecipeWithHttpInfo(String title) async {
+    // Verify required params are set.
+    if (title == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: title');
+    }
+
+    final path = r'/webpage';
+
+    Object postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'title', title));
+
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Parameters:
+  ///
+  /// * [String] title (required):
+  Future<List<WebPage>> searchForRecipe(String title) async {
+    final response = await searchForRecipeWithHttpInfo(title);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return (await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'List<WebPage>') as List)
+        .cast<WebPage>()
+        .toList(growable: false);
+    }
+    return Future<List<WebPage>>.value(null);
+  }
 }

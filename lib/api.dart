@@ -1,84 +1,50 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
 library openapi.api;
 
-import 'package:dio/dio.dart';
-import 'package:built_value/serializer.dart';
-import 'package:openapi/serializers.dart';
-import 'package:openapi/auth/api_key_auth.dart';
-import 'package:openapi/auth/basic_auth.dart';
-import 'package:openapi/auth/oauth.dart';
-import 'package:openapi/api/user_controller_api.dart';
-import 'package:openapi/api/web_page_controller_api.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:http/http.dart';
+import 'package:intl/intl.dart';
+import 'package:meta/meta.dart';
+
+part 'api_client.dart';
+part 'api_helper.dart';
+part 'api_exception.dart';
+part 'auth/authentication.dart';
+part 'auth/api_key_auth.dart';
+part 'auth/oauth.dart';
+part 'auth/http_basic_auth.dart';
+part 'auth/http_bearer_auth.dart';
+
+part 'api/user_controller_api.dart';
+part 'api/web_page_controller_api.dart';
+
+part 'model/favorite.dart';
+part 'model/favorite_dto.dart';
+part 'model/favorite_url_dto.dart';
+part 'model/is_favorite_dto.dart';
+part 'model/user.dart';
+part 'model/user_dto.dart';
+part 'model/user_with_favorites_dto.dart';
+part 'model/web_page.dart';
+part 'model/web_page_url_dto.dart';
 
 
-final _defaultInterceptors = [
-  OAuthInterceptor(),
-  BasicAuthInterceptor(),
-  ApiKeyAuthInterceptor(),
-];
+const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
+const _dateEpochMarker = 'epoch';
+final _dateFormatter = DateFormat('yyyy-MM-dd');
+final _regList = RegExp(r'^List<(.*)>$');
+final _regSet = RegExp(r'^Set<(.*)>$');
+final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-class Openapi {
-
-    static const String basePath = r'https://server.ww-cr.tk';
-
-    final Dio dio;
-
-    final Serializers serializers;
-
-    Openapi({
-      Dio dio,
-      Serializers serializers,
-      String basePathOverride,
-      List<Interceptor> interceptors,
-    })  : this.serializers = serializers ?? standardSerializers,
-          this.dio = dio ??
-              Dio(BaseOptions(
-                baseUrl: basePathOverride ?? basePath,
-                connectTimeout: 5000,
-                receiveTimeout: 3000,
-              )) {
-      if (interceptors == null) {
-        this.dio.interceptors.addAll(_defaultInterceptors);
-      } else {
-        this.dio.interceptors.addAll(interceptors);
-      }
-    }
-
-    void setOAuthToken(String name, String token) {
-        (this.dio.interceptors.firstWhere((element) => element is OAuthInterceptor, orElse: null) as OAuthInterceptor)?.tokens[name] = token;
-    }
-
-    void setBasicAuth(String name, String username, String password) {
-        (this.dio.interceptors.firstWhere((element) => element is BasicAuthInterceptor, orElse: null) as BasicAuthInterceptor)?.authInfo[name] = BasicAuthInfo(username, password);
-    }
-
-    void setApiKey(String name, String apiKey) {
-        (this.dio.interceptors.firstWhere((element) => element is ApiKeyAuthInterceptor, orElse: null) as ApiKeyAuthInterceptor)?.apiKeys[name] = apiKey;
-    }
-
-
-    /**
-    * Get UserControllerApi instance, base route and serializer can be overridden by a given but be careful,
-    * by doing that all interceptors will not be executed
-    */
-    UserControllerApi getUserControllerApi() {
-    return UserControllerApi(dio, serializers);
-    }
-
-
-    /**
-    * Get WebPageControllerApi instance, base route and serializer can be overridden by a given but be careful,
-    * by doing that all interceptors will not be executed
-    */
-    WebPageControllerApi getWebPageControllerApi() {
-    return WebPageControllerApi(dio, serializers);
-    }
-
-
-}
+ApiClient defaultApiClient = ApiClient();

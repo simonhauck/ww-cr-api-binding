@@ -1,146 +1,179 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.7
+// @dart=2.0
 
-// ignore_for_file: unused_import
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
 
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+part of openapi.api;
 
-part 'web_page.g.dart';
+class WebPage {
+  /// Returns a new [WebPage] instance.
+  WebPage({
+    this.id,
+    this.title,
+    this.url,
+    this.imageUrl,
+    this.validationStatus,
+  });
 
-abstract class WebPage implements Built<WebPage, WebPageBuilder> {
+  int id;
 
-    @nullable
-    @BuiltValueField(wireName: r'id')
-    int get id;
+  String title;
 
-    @nullable
-    @BuiltValueField(wireName: r'title')
-    String get title;
+  String url;
 
-    @nullable
-    @BuiltValueField(wireName: r'url')
-    String get url;
+  String imageUrl;
 
-    @nullable
-    @BuiltValueField(wireName: r'imageUrl')
-    String get imageUrl;
+  WebPageValidationStatusEnum validationStatus;
 
-    @nullable
-    @BuiltValueField(wireName: r'validationStatus')
-    WebPageValidationStatusEnum get validationStatus;
-    // enum validationStatusEnum {  UNKNOWN,  OFFICIAL,  NOT_OFFICIAL,  ERROR,  };
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is WebPage &&
+     other.id == id &&
+     other.title == title &&
+     other.url == url &&
+     other.imageUrl == imageUrl &&
+     other.validationStatus == validationStatus;
 
-    WebPage._();
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (title == null ? 0 : title.hashCode) +
+    (url == null ? 0 : url.hashCode) +
+    (imageUrl == null ? 0 : imageUrl.hashCode) +
+    (validationStatus == null ? 0 : validationStatus.hashCode);
 
-    static void _initializeBuilder(WebPageBuilder b) => b;
+  @override
+  String toString() => 'WebPage[id=$id, title=$title, url=$url, imageUrl=$imageUrl, validationStatus=$validationStatus]';
 
-    factory WebPage([void updates(WebPageBuilder b)]) = _$WebPage;
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{};
+    if (id != null) {
+      json[r'id'] = id;
+    }
+    if (title != null) {
+      json[r'title'] = title;
+    }
+    if (url != null) {
+      json[r'url'] = url;
+    }
+    if (imageUrl != null) {
+      json[r'imageUrl'] = imageUrl;
+    }
+    if (validationStatus != null) {
+      json[r'validationStatus'] = validationStatus;
+    }
+    return json;
+  }
 
-    @BuiltValueSerializer(custom: true)
-    static Serializer<WebPage> get serializer => _$WebPageSerializer();
+  /// Returns a new [WebPage] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static WebPage fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : WebPage(
+        id: json[r'id'],
+        title: json[r'title'],
+        url: json[r'url'],
+        imageUrl: json[r'imageUrl'],
+        validationStatus: WebPageValidationStatusEnum.fromJson(json[r'validationStatus']),
+    );
+
+  static List<WebPage> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <WebPage>[]
+      : json.map((dynamic value) => WebPage.fromJson(value)).toList(growable: true == growable);
+
+  static Map<String, WebPage> mapFromJson(Map<String, dynamic> json) {
+    final map = <String, WebPage>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) => map[key] = WebPage.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of WebPage-objects as value to a dart map
+  static Map<String, List<WebPage>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<WebPage>>{};
+    if (json?.isNotEmpty == true) {
+      json.forEach((key, value) {
+        map[key] = WebPage.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
+      });
+    }
+    return map;
+  }
 }
 
-class _$WebPageSerializer implements StructuredSerializer<WebPage> {
 
-    @override
-    final Iterable<Type> types = const [WebPage, _$WebPage];
-    @override
-    final String wireName = r'WebPage';
+class WebPageValidationStatusEnum {
+  /// Instantiate a new enum with the provided [value].
+  const WebPageValidationStatusEnum._(this.value);
 
-    @override
-    Iterable<Object> serialize(Serializers serializers, WebPage object,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object>[];
-        if (object.id != null) {
-            result
-                ..add(r'id')
-                ..add(serializers.serialize(object.id,
-                    specifiedType: const FullType(int)));
-        }
-        if (object.title != null) {
-            result
-                ..add(r'title')
-                ..add(serializers.serialize(object.title,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.url != null) {
-            result
-                ..add(r'url')
-                ..add(serializers.serialize(object.url,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.imageUrl != null) {
-            result
-                ..add(r'imageUrl')
-                ..add(serializers.serialize(object.imageUrl,
-                    specifiedType: const FullType(String)));
-        }
-        if (object.validationStatus != null) {
-            result
-                ..add(r'validationStatus')
-                ..add(serializers.serialize(object.validationStatus,
-                    specifiedType: const FullType(WebPageValidationStatusEnum)));
-        }
-        return result;
-    }
+  /// The underlying value of this enum member.
+  final String value;
 
-    @override
-    WebPage deserialize(Serializers serializers, Iterable<Object> serialized,
-        {FullType specifiedType = FullType.unspecified}) {
-        final result = WebPageBuilder();
+  @override
+  String toString() => value;
 
-        final iterator = serialized.iterator;
-        while (iterator.moveNext()) {
-            final key = iterator.current as String;
-            iterator.moveNext();
-            final dynamic value = iterator.current;
-            switch (key) {
-                case r'id':
-                    result.id = serializers.deserialize(value,
-                        specifiedType: const FullType(int)) as int;
-                    break;
-                case r'title':
-                    result.title = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-                case r'url':
-                    result.url = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-                case r'imageUrl':
-                    result.imageUrl = serializers.deserialize(value,
-                        specifiedType: const FullType(String)) as String;
-                    break;
-                case r'validationStatus':
-                    result.validationStatus = serializers.deserialize(value,
-                        specifiedType: const FullType(WebPageValidationStatusEnum)) as WebPageValidationStatusEnum;
-                    break;
-            }
-        }
-        return result.build();
-    }
+  String toJson() => value;
+
+  static const UNKNOWN = WebPageValidationStatusEnum._(r'UNKNOWN');
+  static const OFFICIAL = WebPageValidationStatusEnum._(r'OFFICIAL');
+  static const NOT_OFFICIAL = WebPageValidationStatusEnum._(r'NOT_OFFICIAL');
+  static const ERROR = WebPageValidationStatusEnum._(r'ERROR');
+
+  /// List of all possible values in this [enum][WebPageValidationStatusEnum].
+  static const values = <WebPageValidationStatusEnum>[
+    UNKNOWN,
+    OFFICIAL,
+    NOT_OFFICIAL,
+    ERROR,
+  ];
+
+  static WebPageValidationStatusEnum fromJson(dynamic value) =>
+    WebPageValidationStatusEnumTypeTransformer().decode(value);
+
+  static List<WebPageValidationStatusEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <WebPageValidationStatusEnum>[]
+      : json
+          .map((value) => WebPageValidationStatusEnum.fromJson(value))
+          .toList(growable: true == growable);
 }
 
-class WebPageValidationStatusEnum extends EnumClass {
+/// Transformation class that can [encode] an instance of [WebPageValidationStatusEnum] to String,
+/// and [decode] dynamic data back to [WebPageValidationStatusEnum].
+class WebPageValidationStatusEnumTypeTransformer {
+  const WebPageValidationStatusEnumTypeTransformer._();
 
-  @BuiltValueEnumConst(wireName: r'UNKNOWN')
-  static const WebPageValidationStatusEnum UNKNOWN = _$webPageValidationStatusEnum_UNKNOWN;
-  @BuiltValueEnumConst(wireName: r'OFFICIAL')
-  static const WebPageValidationStatusEnum OFFICIAL = _$webPageValidationStatusEnum_OFFICIAL;
-  @BuiltValueEnumConst(wireName: r'NOT_OFFICIAL')
-  static const WebPageValidationStatusEnum NOT_OFFICIAL = _$webPageValidationStatusEnum_NOT_OFFICIAL;
-  @BuiltValueEnumConst(wireName: r'ERROR')
-  static const WebPageValidationStatusEnum ERROR = _$webPageValidationStatusEnum_ERROR;
+  factory WebPageValidationStatusEnumTypeTransformer() => _instance ??= WebPageValidationStatusEnumTypeTransformer._();
 
-  static Serializer<WebPageValidationStatusEnum> get serializer => _$webPageValidationStatusEnumSerializer;
+  String encode(WebPageValidationStatusEnum data) => data.value;
 
-  const WebPageValidationStatusEnum._(String name): super(name);
+  /// Decodes a [dynamic value][data] to a WebPageValidationStatusEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  WebPageValidationStatusEnum decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'UNKNOWN': return WebPageValidationStatusEnum.UNKNOWN;
+      case r'OFFICIAL': return WebPageValidationStatusEnum.OFFICIAL;
+      case r'NOT_OFFICIAL': return WebPageValidationStatusEnum.NOT_OFFICIAL;
+      case r'ERROR': return WebPageValidationStatusEnum.ERROR;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
 
-  static BuiltSet<WebPageValidationStatusEnum> get values => _$webPageValidationStatusEnumValues;
-  static WebPageValidationStatusEnum valueOf(String name) => _$webPageValidationStatusEnumValueOf(name);
+  /// Singleton [WebPageValidationStatusEnumTypeTransformer] instance.
+  static WebPageValidationStatusEnumTypeTransformer _instance;
 }
 

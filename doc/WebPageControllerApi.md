@@ -22,8 +22,8 @@ Method | HTTP request | Description
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new WebPageControllerApi();
-var webPageUrlDto = new WebPageUrlDto(); // WebPageUrlDto | 
+final api_instance = WebPageControllerApi();
+final webPageUrlDto = WebPageUrlDto(); // WebPageUrlDto | 
 
 try { 
     api_instance.indexNewPage(webPageUrlDto);
@@ -54,7 +54,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchForRecipe**
-> BuiltList<WebPage> searchForRecipe(title)
+> List<WebPage> searchForRecipe(title)
 
 
 
@@ -62,11 +62,11 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new WebPageControllerApi();
-var title = title_example; // String | 
+final api_instance = WebPageControllerApi();
+final title = title_example; // String | 
 
 try { 
-    var result = api_instance.searchForRecipe(title);
+    final result = api_instance.searchForRecipe(title);
     print(result);
 } catch (e) {
     print('Exception when calling WebPageControllerApi->searchForRecipe: $e\n');
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<WebPage>**](WebPage.md)
+[**List<WebPage>**](WebPage.md)
 
 ### Authorization
 

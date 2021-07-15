@@ -25,12 +25,12 @@ Add the link as favorite
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UserControllerApi();
-var secret = secret_example; // String | 
-var favoriteUrlDto = new FavoriteUrlDto(); // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
-    var result = api_instance.addLink(secret, favoriteUrlDto);
+    final result = api_instance.addLink(secret, favoriteUrlDto);
     print(result);
 } catch (e) {
     print('Exception when calling UserControllerApi->addLink: $e\n');
@@ -68,10 +68,10 @@ Create a new user
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UserControllerApi();
+final api_instance = UserControllerApi();
 
 try { 
-    var result = api_instance.createUser();
+    final result = api_instance.createUser();
     print(result);
 } catch (e) {
     print('Exception when calling UserControllerApi->createUser: $e\n');
@@ -105,9 +105,9 @@ Delete a link as favorite
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UserControllerApi();
-var secret = secret_example; // String | 
-var favoriteUrlDto = new FavoriteUrlDto(); // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
     api_instance.deleteLink(secret, favoriteUrlDto);
@@ -147,11 +147,11 @@ Get the user for this secret
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UserControllerApi();
-var secret = secret_example; // String | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
 
 try { 
-    var result = api_instance.getUserWithFavorites(secret);
+    final result = api_instance.getUserWithFavorites(secret);
     print(result);
 } catch (e) {
     print('Exception when calling UserControllerApi->getUserWithFavorites: $e\n');
@@ -188,12 +188,12 @@ Check weather the give url is a favorite or not
 ```dart
 import 'package:openapi/api.dart';
 
-var api_instance = new UserControllerApi();
-var secret = secret_example; // String | 
-var favoriteUrlDto = new FavoriteUrlDto(); // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
-    var result = api_instance.isFavorite(secret, favoriteUrlDto);
+    final result = api_instance.isFavorite(secret, favoriteUrlDto);
     print(result);
 } catch (e) {
     print('Exception when calling UserControllerApi->isFavorite: $e\n');
