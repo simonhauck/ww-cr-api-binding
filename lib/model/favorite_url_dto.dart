@@ -1,19 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'favorite_url_dto.g.dart';
 
-/// FavoriteUrlDto
-///
-/// Properties:
-/// * [url] 
 abstract class FavoriteUrlDto implements Built<FavoriteUrlDto, FavoriteUrlDtoBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'url')
-    String? get url;
+    String get url;
 
     FavoriteUrlDto._();
 
@@ -26,16 +27,16 @@ abstract class FavoriteUrlDto implements Built<FavoriteUrlDto, FavoriteUrlDtoBui
 }
 
 class _$FavoriteUrlDtoSerializer implements StructuredSerializer<FavoriteUrlDto> {
+
     @override
     final Iterable<Type> types = const [FavoriteUrlDto, _$FavoriteUrlDto];
-
     @override
     final String wireName = r'FavoriteUrlDto';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, FavoriteUrlDto object,
+    Iterable<Object> serialize(Serializers serializers, FavoriteUrlDto object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.url != null) {
             result
                 ..add(r'url')
@@ -46,7 +47,7 @@ class _$FavoriteUrlDtoSerializer implements StructuredSerializer<FavoriteUrlDto>
     }
 
     @override
-    FavoriteUrlDto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    FavoriteUrlDto deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = FavoriteUrlDtoBuilder();
 
@@ -54,7 +55,7 @@ class _$FavoriteUrlDtoSerializer implements StructuredSerializer<FavoriteUrlDto>
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'url':
                     result.url = serializers.deserialize(value,

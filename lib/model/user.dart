@@ -1,37 +1,38 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/favorite.dart';
+import 'package:openapi/model/favorite.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'user.g.dart';
 
-/// User
-///
-/// Properties:
-/// * [id] 
-/// * [secret] 
-/// * [createdAt] 
-/// * [updatedAt] 
-/// * [favorites] 
 abstract class User implements Built<User, UserBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'id')
-    int? get id;
+    int get id;
 
+    @nullable
     @BuiltValueField(wireName: r'secret')
-    String? get secret;
+    String get secret;
 
+    @nullable
     @BuiltValueField(wireName: r'createdAt')
-    DateTime? get createdAt;
+    DateTime get createdAt;
 
+    @nullable
     @BuiltValueField(wireName: r'updatedAt')
-    DateTime? get updatedAt;
+    DateTime get updatedAt;
 
+    @nullable
     @BuiltValueField(wireName: r'favorites')
-    BuiltList<Favorite>? get favorites;
+    BuiltList<Favorite> get favorites;
 
     User._();
 
@@ -44,16 +45,16 @@ abstract class User implements Built<User, UserBuilder> {
 }
 
 class _$UserSerializer implements StructuredSerializer<User> {
+
     @override
     final Iterable<Type> types = const [User, _$User];
-
     @override
     final String wireName = r'User';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, User object,
+    Iterable<Object> serialize(Serializers serializers, User object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.id != null) {
             result
                 ..add(r'id')
@@ -88,7 +89,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
     }
 
     @override
-    User deserialize(Serializers serializers, Iterable<Object?> serialized,
+    User deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = UserBuilder();
 
@@ -96,7 +97,7 @@ class _$UserSerializer implements StructuredSerializer<User> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'id':
                     result.id = serializers.deserialize(value,

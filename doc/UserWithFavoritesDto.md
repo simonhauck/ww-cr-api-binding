@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user** | [**UserDto**](UserDto.md) |  | [optional] 
-**favorites** | [**BuiltList&lt;FavoriteDto&gt;**](FavoriteDto.md) |  | [optional] 
+**favorites** | [**BuiltList<FavoriteDto>**](FavoriteDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,9 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -8,29 +11,27 @@ import 'package:built_value/serializer.dart';
 
 part 'web_page.g.dart';
 
-/// WebPage
-///
-/// Properties:
-/// * [id] 
-/// * [title] 
-/// * [url] 
-/// * [imageUrl] 
-/// * [validationStatus] 
 abstract class WebPage implements Built<WebPage, WebPageBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'id')
-    int? get id;
+    int get id;
 
+    @nullable
     @BuiltValueField(wireName: r'title')
-    String? get title;
+    String get title;
 
+    @nullable
     @BuiltValueField(wireName: r'url')
-    String? get url;
+    String get url;
 
+    @nullable
     @BuiltValueField(wireName: r'imageUrl')
-    String? get imageUrl;
+    String get imageUrl;
 
+    @nullable
     @BuiltValueField(wireName: r'validationStatus')
-    WebPageValidationStatusEnum? get validationStatus;
+    WebPageValidationStatusEnum get validationStatus;
     // enum validationStatusEnum {  UNKNOWN,  OFFICIAL,  NOT_OFFICIAL,  ERROR,  };
 
     WebPage._();
@@ -44,16 +45,16 @@ abstract class WebPage implements Built<WebPage, WebPageBuilder> {
 }
 
 class _$WebPageSerializer implements StructuredSerializer<WebPage> {
+
     @override
     final Iterable<Type> types = const [WebPage, _$WebPage];
-
     @override
     final String wireName = r'WebPage';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, WebPage object,
+    Iterable<Object> serialize(Serializers serializers, WebPage object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.id != null) {
             result
                 ..add(r'id')
@@ -88,7 +89,7 @@ class _$WebPageSerializer implements StructuredSerializer<WebPage> {
     }
 
     @override
-    WebPage deserialize(Serializers serializers, Iterable<Object?> serialized,
+    WebPage deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = WebPageBuilder();
 
@@ -96,7 +97,7 @@ class _$WebPageSerializer implements StructuredSerializer<WebPage> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'id':
                     result.id = serializers.deserialize(value,

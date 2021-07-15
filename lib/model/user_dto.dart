@@ -1,23 +1,24 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'user_dto.g.dart';
 
-/// UserDto
-///
-/// Properties:
-/// * [id] 
-/// * [secret] 
 abstract class UserDto implements Built<UserDto, UserDtoBuilder> {
-    @BuiltValueField(wireName: r'id')
-    int? get id;
 
+    @nullable
+    @BuiltValueField(wireName: r'id')
+    int get id;
+
+    @nullable
     @BuiltValueField(wireName: r'secret')
-    String? get secret;
+    String get secret;
 
     UserDto._();
 
@@ -30,16 +31,16 @@ abstract class UserDto implements Built<UserDto, UserDtoBuilder> {
 }
 
 class _$UserDtoSerializer implements StructuredSerializer<UserDto> {
+
     @override
     final Iterable<Type> types = const [UserDto, _$UserDto];
-
     @override
     final String wireName = r'UserDto';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, UserDto object,
+    Iterable<Object> serialize(Serializers serializers, UserDto object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.id != null) {
             result
                 ..add(r'id')
@@ -56,7 +57,7 @@ class _$UserDtoSerializer implements StructuredSerializer<UserDto> {
     }
 
     @override
-    UserDto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    UserDto deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = UserDtoBuilder();
 
@@ -64,7 +65,7 @@ class _$UserDtoSerializer implements StructuredSerializer<UserDto> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'id':
                     result.id = serializers.deserialize(value,

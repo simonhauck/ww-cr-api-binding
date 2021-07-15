@@ -1,37 +1,38 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
 
-import 'package:openapi/src/model/user.dart';
-import 'package:openapi/src/model/web_page.dart';
+// ignore_for_file: unused_import
+
+import 'package:openapi/model/user.dart';
+import 'package:openapi/model/web_page.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'favorite.g.dart';
 
-/// Favorite
-///
-/// Properties:
-/// * [id] 
-/// * [createdAt] 
-/// * [updatedAt] 
-/// * [user] 
-/// * [webPage] 
 abstract class Favorite implements Built<Favorite, FavoriteBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'id')
-    int? get id;
+    int get id;
 
+    @nullable
     @BuiltValueField(wireName: r'createdAt')
-    DateTime? get createdAt;
+    DateTime get createdAt;
 
+    @nullable
     @BuiltValueField(wireName: r'updatedAt')
-    DateTime? get updatedAt;
+    DateTime get updatedAt;
 
+    @nullable
     @BuiltValueField(wireName: r'user')
-    User? get user;
+    User get user;
 
+    @nullable
     @BuiltValueField(wireName: r'webPage')
-    WebPage? get webPage;
+    WebPage get webPage;
 
     Favorite._();
 
@@ -44,16 +45,16 @@ abstract class Favorite implements Built<Favorite, FavoriteBuilder> {
 }
 
 class _$FavoriteSerializer implements StructuredSerializer<Favorite> {
+
     @override
     final Iterable<Type> types = const [Favorite, _$Favorite];
-
     @override
     final String wireName = r'Favorite';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, Favorite object,
+    Iterable<Object> serialize(Serializers serializers, Favorite object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.id != null) {
             result
                 ..add(r'id')
@@ -88,7 +89,7 @@ class _$FavoriteSerializer implements StructuredSerializer<Favorite> {
     }
 
     @override
-    Favorite deserialize(Serializers serializers, Iterable<Object?> serialized,
+    Favorite deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = FavoriteBuilder();
 
@@ -96,7 +97,7 @@ class _$FavoriteSerializer implements StructuredSerializer<Favorite> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'id':
                     result.id = serializers.deserialize(value,

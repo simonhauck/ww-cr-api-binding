@@ -1,26 +1,27 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/favorite_dto.dart';
-import 'package:openapi/src/model/user_dto.dart';
+import 'package:openapi/model/user_dto.dart';
+import 'package:openapi/model/favorite_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'user_with_favorites_dto.g.dart';
 
-/// UserWithFavoritesDto
-///
-/// Properties:
-/// * [user] 
-/// * [favorites] 
 abstract class UserWithFavoritesDto implements Built<UserWithFavoritesDto, UserWithFavoritesDtoBuilder> {
-    @BuiltValueField(wireName: r'user')
-    UserDto? get user;
 
+    @nullable
+    @BuiltValueField(wireName: r'user')
+    UserDto get user;
+
+    @nullable
     @BuiltValueField(wireName: r'favorites')
-    BuiltList<FavoriteDto>? get favorites;
+    BuiltList<FavoriteDto> get favorites;
 
     UserWithFavoritesDto._();
 
@@ -33,16 +34,16 @@ abstract class UserWithFavoritesDto implements Built<UserWithFavoritesDto, UserW
 }
 
 class _$UserWithFavoritesDtoSerializer implements StructuredSerializer<UserWithFavoritesDto> {
+
     @override
     final Iterable<Type> types = const [UserWithFavoritesDto, _$UserWithFavoritesDto];
-
     @override
     final String wireName = r'UserWithFavoritesDto';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, UserWithFavoritesDto object,
+    Iterable<Object> serialize(Serializers serializers, UserWithFavoritesDto object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.user != null) {
             result
                 ..add(r'user')
@@ -59,7 +60,7 @@ class _$UserWithFavoritesDtoSerializer implements StructuredSerializer<UserWithF
     }
 
     @override
-    UserWithFavoritesDto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    UserWithFavoritesDto deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = UserWithFavoritesDtoBuilder();
 
@@ -67,7 +68,7 @@ class _$UserWithFavoritesDtoSerializer implements StructuredSerializer<UserWithF
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'user':
                     result.user.replace(serializers.deserialize(value,

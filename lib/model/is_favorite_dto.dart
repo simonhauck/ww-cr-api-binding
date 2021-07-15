@@ -1,6 +1,9 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -8,13 +11,11 @@ import 'package:built_value/serializer.dart';
 
 part 'is_favorite_dto.g.dart';
 
-/// IsFavoriteDto
-///
-/// Properties:
-/// * [status] 
 abstract class IsFavoriteDto implements Built<IsFavoriteDto, IsFavoriteDtoBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'status')
-    IsFavoriteDtoStatusEnum? get status;
+    IsFavoriteDtoStatusEnum get status;
     // enum statusEnum {  IS_FAVORITE,  NO_FAVORITE,  };
 
     IsFavoriteDto._();
@@ -28,16 +29,16 @@ abstract class IsFavoriteDto implements Built<IsFavoriteDto, IsFavoriteDtoBuilde
 }
 
 class _$IsFavoriteDtoSerializer implements StructuredSerializer<IsFavoriteDto> {
+
     @override
     final Iterable<Type> types = const [IsFavoriteDto, _$IsFavoriteDto];
-
     @override
     final String wireName = r'IsFavoriteDto';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, IsFavoriteDto object,
+    Iterable<Object> serialize(Serializers serializers, IsFavoriteDto object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.status != null) {
             result
                 ..add(r'status')
@@ -48,7 +49,7 @@ class _$IsFavoriteDtoSerializer implements StructuredSerializer<IsFavoriteDto> {
     }
 
     @override
-    IsFavoriteDto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    IsFavoriteDto deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = IsFavoriteDtoBuilder();
 
@@ -56,7 +57,7 @@ class _$IsFavoriteDtoSerializer implements StructuredSerializer<IsFavoriteDto> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'status':
                     result.status = serializers.deserialize(value,

@@ -1,19 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.7
+
+// ignore_for_file: unused_import
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'web_page_url_dto.g.dart';
 
-/// WebPageUrlDto
-///
-/// Properties:
-/// * [url] 
 abstract class WebPageUrlDto implements Built<WebPageUrlDto, WebPageUrlDtoBuilder> {
+
+    @nullable
     @BuiltValueField(wireName: r'url')
-    String? get url;
+    String get url;
 
     WebPageUrlDto._();
 
@@ -26,16 +27,16 @@ abstract class WebPageUrlDto implements Built<WebPageUrlDto, WebPageUrlDtoBuilde
 }
 
 class _$WebPageUrlDtoSerializer implements StructuredSerializer<WebPageUrlDto> {
+
     @override
     final Iterable<Type> types = const [WebPageUrlDto, _$WebPageUrlDto];
-
     @override
     final String wireName = r'WebPageUrlDto';
 
     @override
-    Iterable<Object?> serialize(Serializers serializers, WebPageUrlDto object,
+    Iterable<Object> serialize(Serializers serializers, WebPageUrlDto object,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = <Object?>[];
+        final result = <Object>[];
         if (object.url != null) {
             result
                 ..add(r'url')
@@ -46,7 +47,7 @@ class _$WebPageUrlDtoSerializer implements StructuredSerializer<WebPageUrlDto> {
     }
 
     @override
-    WebPageUrlDto deserialize(Serializers serializers, Iterable<Object?> serialized,
+    WebPageUrlDto deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
         final result = WebPageUrlDtoBuilder();
 
@@ -54,7 +55,7 @@ class _$WebPageUrlDtoSerializer implements StructuredSerializer<WebPageUrlDto> {
         while (iterator.moveNext()) {
             final key = iterator.current as String;
             iterator.moveNext();
-            final Object? value = iterator.current;
+            final dynamic value = iterator.current;
             switch (key) {
                 case r'url':
                     result.url = serializers.deserialize(value,
