@@ -25,14 +25,14 @@ Add the link as favorite
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getUserControllerApi();
-final String secret = secret_example; // String | 
-final FavoriteUrlDto favoriteUrlDto = ; // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
-    final response = api.addLink(secret, favoriteUrlDto);
-    print(response);
-} catch on DioError (e) {
+    final result = api_instance.addLink(secret, favoriteUrlDto);
+    print(result);
+} catch (e) {
     print('Exception when calling UserControllerApi->addLink: $e\n');
 }
 ```
@@ -68,12 +68,12 @@ Create a new user
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getUserControllerApi();
+final api_instance = UserControllerApi();
 
 try { 
-    final response = api.createUser();
-    print(response);
-} catch on DioError (e) {
+    final result = api_instance.createUser();
+    print(result);
+} catch (e) {
     print('Exception when calling UserControllerApi->createUser: $e\n');
 }
 ```
@@ -105,13 +105,13 @@ Delete a link as favorite
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getUserControllerApi();
-final String secret = secret_example; // String | 
-final FavoriteUrlDto favoriteUrlDto = ; // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
-    api.deleteLink(secret, favoriteUrlDto);
-} catch on DioError (e) {
+    api_instance.deleteLink(secret, favoriteUrlDto);
+} catch (e) {
     print('Exception when calling UserControllerApi->deleteLink: $e\n');
 }
 ```
@@ -147,13 +147,13 @@ Get the user for this secret
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getUserControllerApi();
-final String secret = secret_example; // String | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
 
 try { 
-    final response = api.getUserWithFavorites(secret);
-    print(response);
-} catch on DioError (e) {
+    final result = api_instance.getUserWithFavorites(secret);
+    print(result);
+} catch (e) {
     print('Exception when calling UserControllerApi->getUserWithFavorites: $e\n');
 }
 ```
@@ -188,14 +188,14 @@ Check weather the give url is a favorite or not
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getUserControllerApi();
-final String secret = secret_example; // String | 
-final FavoriteUrlDto favoriteUrlDto = ; // FavoriteUrlDto | 
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
 
 try { 
-    final response = api.isFavorite(secret, favoriteUrlDto);
-    print(response);
-} catch on DioError (e) {
+    final result = api_instance.isFavorite(secret, favoriteUrlDto);
+    print(result);
+} catch (e) {
     print('Exception when calling UserControllerApi->isFavorite: $e\n');
 }
 ```

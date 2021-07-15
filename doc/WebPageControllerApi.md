@@ -22,12 +22,12 @@ Method | HTTP request | Description
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getWebPageControllerApi();
-final WebPageUrlDto webPageUrlDto = ; // WebPageUrlDto | 
+final api_instance = WebPageControllerApi();
+final webPageUrlDto = WebPageUrlDto(); // WebPageUrlDto | 
 
 try { 
-    api.indexNewPage(webPageUrlDto);
-} catch on DioError (e) {
+    api_instance.indexNewPage(webPageUrlDto);
+} catch (e) {
     print('Exception when calling WebPageControllerApi->indexNewPage: $e\n');
 }
 ```
@@ -54,7 +54,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchForRecipe**
-> BuiltList<WebPage> searchForRecipe(title)
+> List<WebPage> searchForRecipe(title)
 
 
 
@@ -62,13 +62,13 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api = Openapi().getWebPageControllerApi();
-final String title = title_example; // String | 
+final api_instance = WebPageControllerApi();
+final title = title_example; // String | 
 
 try { 
-    final response = api.searchForRecipe(title);
-    print(response);
-} catch on DioError (e) {
+    final result = api_instance.searchForRecipe(title);
+    print(result);
+} catch (e) {
     print('Exception when calling WebPageControllerApi->searchForRecipe: $e\n');
 }
 ```
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList&lt;WebPage&gt;**](WebPage.md)
+[**List<WebPage>**](WebPage.md)
 
 ### Authorization
 
