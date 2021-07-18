@@ -182,6 +182,68 @@ class UserControllerApi {
     }
   }
 
+  /// Delete a link as favorite (but with a Post request)
+  ///
+  /// The body in delete functions is discouraged and not supported by the http package in fluter
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] secret (required):
+  ///
+  /// * [FavoriteUrlDto] favoriteUrlDto (required):
+  Future<Response> deleteLinkWithPostWithHttpInfo(String secret, FavoriteUrlDto favoriteUrlDto) async {
+    // Verify required params are set.
+    if (secret == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: secret');
+    }
+    if (favoriteUrlDto == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: favoriteUrlDto');
+    }
+
+    final path = r'/user/{secret}/favorite/delete'
+      .replaceAll('{' + 'secret' + '}', secret.toString());
+
+    Object postBody = favoriteUrlDto;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Delete a link as favorite (but with a Post request)
+  ///
+  /// The body in delete functions is discouraged and not supported by the http package in fluter
+  ///
+  /// Parameters:
+  ///
+  /// * [String] secret (required):
+  ///
+  /// * [FavoriteUrlDto] favoriteUrlDto (required):
+  Future<void> deleteLinkWithPost(String secret, FavoriteUrlDto favoriteUrlDto) async {
+    final response = await deleteLinkWithPostWithHttpInfo(secret, favoriteUrlDto);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
   /// Get the user for this secret
   ///
   /// Note: This method returns the HTTP [Response].

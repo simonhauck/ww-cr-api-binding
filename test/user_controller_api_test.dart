@@ -37,6 +37,15 @@ void main() {
       // TODO
     });
 
+    // Delete a link as favorite (but with a Post request)
+    //
+    // The body in delete functions is discouraged and not supported by the http package in fluter
+    //
+    //Future deleteLinkWithPost(String secret, FavoriteUrlDto favoriteUrlDto) async
+    test('test deleteLinkWithPost', () async {
+      // TODO
+    });
+
     // Get the user for this secret
     //
     //Future<UserWithFavoritesDto> getUserWithFavorites(String secret) async

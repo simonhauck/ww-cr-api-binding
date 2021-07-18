@@ -62,6 +62,7 @@ Class | Method | HTTP request | Description
 *UserControllerApi* | [**addLink**](doc\/UserControllerApi.md#addlink) | **POST** /user/{secret}/favorite | Add the link as favorite
 *UserControllerApi* | [**createUser**](doc\/UserControllerApi.md#createuser) | **POST** /user | Create a new user
 *UserControllerApi* | [**deleteLink**](doc\/UserControllerApi.md#deletelink) | **DELETE** /user/{secret}/favorite | Delete a link as favorite
+*UserControllerApi* | [**deleteLinkWithPost**](doc\/UserControllerApi.md#deletelinkwithpost) | **POST** /user/{secret}/favorite/delete | Delete a link as favorite (but with a Post request)
 *UserControllerApi* | [**getUserWithFavorites**](doc\/UserControllerApi.md#getuserwithfavorites) | **GET** /user/{secret} | Get the user for this secret
 *UserControllerApi* | [**isFavorite**](doc\/UserControllerApi.md#isfavorite) | **POST** /user/{secret}/favorite/status | Check weather the give url is a favorite or not
 *WebPageControllerApi* | [**indexNewPage**](doc\/WebPageControllerApi.md#indexnewpage) | **POST** /webpage | 

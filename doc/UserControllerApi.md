@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**addLink**](UserControllerApi.md#addlink) | **POST** /user/{secret}/favorite | Add the link as favorite
 [**createUser**](UserControllerApi.md#createuser) | **POST** /user | Create a new user
 [**deleteLink**](UserControllerApi.md#deletelink) | **DELETE** /user/{secret}/favorite | Delete a link as favorite
+[**deleteLinkWithPost**](UserControllerApi.md#deletelinkwithpost) | **POST** /user/{secret}/favorite/delete | Delete a link as favorite (but with a Post request)
 [**getUserWithFavorites**](UserControllerApi.md#getuserwithfavorites) | **GET** /user/{secret} | Get the user for this secret
 [**isFavorite**](UserControllerApi.md#isfavorite) | **POST** /user/{secret}/favorite/status | Check weather the give url is a favorite or not
 
@@ -113,6 +114,50 @@ try {
     api_instance.deleteLink(secret, favoriteUrlDto);
 } catch (e) {
     print('Exception when calling UserControllerApi->deleteLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **secret** | **String**|  | 
+ **favoriteUrlDto** | [**FavoriteUrlDto**](FavoriteUrlDto.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteLinkWithPost**
+> deleteLinkWithPost(secret, favoriteUrlDto)
+
+Delete a link as favorite (but with a Post request)
+
+The body in delete functions is discouraged and not supported by the http package in fluter
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+final favoriteUrlDto = FavoriteUrlDto(); // FavoriteUrlDto | 
+
+try { 
+    api_instance.deleteLinkWithPost(secret, favoriteUrlDto);
+} catch (e) {
+    print('Exception when calling UserControllerApi->deleteLinkWithPost: $e\n');
 }
 ```
 
