@@ -28,19 +28,18 @@ jobs:
     # Runs a single command using the runners shell
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        path: repo
-    - name: Generate Angular Client
-      uses: triaxtec/openapitools-generator-action@v1.0.0
-      with:
-        generator: ${{ github.event.inputs.language }}
-        openapi-file: ${{ github.event.inputs.url }}
-        config-file: repo/config.yml
-    - name: Copy config file to generated directory
-      run: |
-        cp repo/config.yml ${{ github.event.inputs.language }}-client 
     - name: Delete files in repo
       run: |
-        rm -R repo/
+        rm -R lib/
+        rm -R doc/
+        rm -R test/
+    - name: Generate client
+      run: |
+        docker run -u 1001 --rm --workdir /github/workspace -v "$GITHUB_WORKSPACE":"/github/workspace" \
+          openapitools/openapi-generator-cli generate \
+          -i ${{ github.event.inputs.url }} \
+          -g ${{ github.event.inputs.language }} \
+          -c /github/workspace/config.yaml }} \
+
         
         
