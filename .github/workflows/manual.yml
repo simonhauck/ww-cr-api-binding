@@ -35,7 +35,7 @@ jobs:
       with:
         generator: ${{ github.event.inputs.language }}
         openapi-file: ${{ github.event.inputs.url }}
-        config-file: config.yml
+        config-file: repo/config.yml
     - name: Copy config file to generated directory
       run: |
         cp repo/config.yml ${{ github.event.inputs.language }}-client 
