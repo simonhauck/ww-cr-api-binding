@@ -41,7 +41,6 @@ jobs:
           -i ${{ github.event.inputs.url }} \
           -g ${{ github.event.inputs.language }} \
           -c /github/workspace/config.yml
-        - name: Delete files in repo
     - name: Show files
       run: |
         ls 
