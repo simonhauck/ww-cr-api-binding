@@ -17,6 +17,7 @@ class WebPage {
     this.url,
     this.imageUrl,
     this.validationStatus,
+    this.smallImage,
   });
 
   int id;
@@ -29,13 +30,16 @@ class WebPage {
 
   WebPageValidationStatusEnum validationStatus;
 
+  String smallImage;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is WebPage &&
      other.id == id &&
      other.title == title &&
      other.url == url &&
      other.imageUrl == imageUrl &&
-     other.validationStatus == validationStatus;
+     other.validationStatus == validationStatus &&
+     other.smallImage == smallImage;
 
   @override
   int get hashCode =>
@@ -43,10 +47,11 @@ class WebPage {
     (title == null ? 0 : title.hashCode) +
     (url == null ? 0 : url.hashCode) +
     (imageUrl == null ? 0 : imageUrl.hashCode) +
-    (validationStatus == null ? 0 : validationStatus.hashCode);
+    (validationStatus == null ? 0 : validationStatus.hashCode) +
+    (smallImage == null ? 0 : smallImage.hashCode);
 
   @override
-  String toString() => 'WebPage[id=$id, title=$title, url=$url, imageUrl=$imageUrl, validationStatus=$validationStatus]';
+  String toString() => 'WebPage[id=$id, title=$title, url=$url, imageUrl=$imageUrl, validationStatus=$validationStatus, smallImage=$smallImage]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -65,6 +70,9 @@ class WebPage {
     if (validationStatus != null) {
       json[r'validationStatus'] = validationStatus;
     }
+    if (smallImage != null) {
+      json[r'smallImage'] = smallImage;
+    }
     return json;
   }
 
@@ -78,6 +86,7 @@ class WebPage {
         url: json[r'url'],
         imageUrl: json[r'imageUrl'],
         validationStatus: WebPageValidationStatusEnum.fromJson(json[r'validationStatus']),
+        smallImage: json[r'smallImage'],
     );
 
   static List<WebPage> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>

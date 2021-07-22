@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    //Future<List<WebPage>> searchForRecipe(String title) async
+    //Future<List<WebPage>> searchForRecipe(String title, { int width }) async
     test('test searchForRecipe', () async {
       // TODO
     });

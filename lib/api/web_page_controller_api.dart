@@ -64,7 +64,9 @@ class WebPageControllerApi {
   /// Parameters:
   ///
   /// * [String] title (required):
-  Future<Response> searchForRecipeWithHttpInfo(String title) async {
+  ///
+  /// * [int] width:
+  Future<Response> searchForRecipeWithHttpInfo(String title, { int width }) async {
     // Verify required params are set.
     if (title == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: title');
@@ -79,6 +81,9 @@ class WebPageControllerApi {
     final formParams = <String, String>{};
 
       queryParams.addAll(_convertParametersForCollectionFormat('', 'title', title));
+    if (width != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'width', width));
+    }
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -100,8 +105,10 @@ class WebPageControllerApi {
   /// Parameters:
   ///
   /// * [String] title (required):
-  Future<List<WebPage>> searchForRecipe(String title) async {
-    final response = await searchForRecipeWithHttpInfo(title);
+  ///
+  /// * [int] width:
+  Future<List<WebPage>> searchForRecipe(String title, { int width }) async {
+    final response = await searchForRecipeWithHttpInfo(title,  width: width );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

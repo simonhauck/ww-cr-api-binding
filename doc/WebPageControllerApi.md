@@ -54,7 +54,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchForRecipe**
-> List<WebPage> searchForRecipe(title)
+> List<WebPage> searchForRecipe(title, width)
 
 
 
@@ -64,9 +64,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = WebPageControllerApi();
 final title = title_example; // String | 
+final width = 56; // int | 
 
 try { 
-    final result = api_instance.searchForRecipe(title);
+    final result = api_instance.searchForRecipe(title, width);
     print(result);
 } catch (e) {
     print('Exception when calling WebPageControllerApi->searchForRecipe: $e\n');
@@ -78,6 +79,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **title** | **String**|  | 
+ **width** | **int**|  | [optional] 
 
 ### Return type
 

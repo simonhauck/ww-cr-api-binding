@@ -184,7 +184,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserWithFavorites**
-> UserWithFavoritesDto getUserWithFavorites(secret)
+> UserWithFavoritesDto getUserWithFavorites(secret, width)
 
 Get the user for this secret
 
@@ -194,9 +194,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = UserControllerApi();
 final secret = secret_example; // String | 
+final width = 56; // int | 
 
 try { 
-    final result = api_instance.getUserWithFavorites(secret);
+    final result = api_instance.getUserWithFavorites(secret, width);
     print(result);
 } catch (e) {
     print('Exception when calling UserControllerApi->getUserWithFavorites: $e\n');
@@ -208,6 +209,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **secret** | **String**|  | 
+ **width** | **int**|  | [optional] 
 
 ### Return type
 

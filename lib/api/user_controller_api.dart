@@ -251,7 +251,9 @@ class UserControllerApi {
   /// Parameters:
   ///
   /// * [String] secret (required):
-  Future<Response> getUserWithFavoritesWithHttpInfo(String secret) async {
+  ///
+  /// * [int] width:
+  Future<Response> getUserWithFavoritesWithHttpInfo(String secret, { int width }) async {
     // Verify required params are set.
     if (secret == null) {
      throw ApiException(HttpStatus.badRequest, 'Missing required param: secret');
@@ -265,6 +267,10 @@ class UserControllerApi {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (width != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'width', width));
+    }
 
     final contentTypes = <String>[];
     final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
@@ -288,8 +294,10 @@ class UserControllerApi {
   /// Parameters:
   ///
   /// * [String] secret (required):
-  Future<UserWithFavoritesDto> getUserWithFavorites(String secret) async {
-    final response = await getUserWithFavoritesWithHttpInfo(secret);
+  ///
+  /// * [int] width:
+  Future<UserWithFavoritesDto> getUserWithFavorites(String secret, { int width }) async {
+    final response = await getUserWithFavoritesWithHttpInfo(secret,  width: width );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

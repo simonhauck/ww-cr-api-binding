@@ -40,6 +40,11 @@ void main() {
       // TODO
     });
 
+    // String smallImage
+    test('to test the property `smallImage`', () async {
+      // TODO
+    });
+
 
   });
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **url** | **String** |  | [optional] 
 **imageUrl** | **String** |  | [optional] 
+**smallImage** | **String** |  | [optional] 
 **title** | **String** |  | [optional] 
 **validationStatus** | **String** |  | [optional] 
 

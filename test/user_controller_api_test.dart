@@ -48,7 +48,7 @@ void main() {
 
     // Get the user for this secret
     //
-    //Future<UserWithFavoritesDto> getUserWithFavorites(String secret) async
+    //Future<UserWithFavoritesDto> getUserWithFavorites(String secret, { int width }) async
     test('test getUserWithFavorites', () async {
       // TODO
     });

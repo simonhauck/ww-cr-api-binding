@@ -15,6 +15,7 @@ class FavoriteDto {
     this.id,
     this.url,
     this.imageUrl,
+    this.smallImage,
     this.title,
     this.validationStatus,
   });
@@ -25,6 +26,8 @@ class FavoriteDto {
 
   String imageUrl;
 
+  String smallImage;
+
   String title;
 
   FavoriteDtoValidationStatusEnum validationStatus;
@@ -34,6 +37,7 @@ class FavoriteDto {
      other.id == id &&
      other.url == url &&
      other.imageUrl == imageUrl &&
+     other.smallImage == smallImage &&
      other.title == title &&
      other.validationStatus == validationStatus;
 
@@ -42,11 +46,12 @@ class FavoriteDto {
     (id == null ? 0 : id.hashCode) +
     (url == null ? 0 : url.hashCode) +
     (imageUrl == null ? 0 : imageUrl.hashCode) +
+    (smallImage == null ? 0 : smallImage.hashCode) +
     (title == null ? 0 : title.hashCode) +
     (validationStatus == null ? 0 : validationStatus.hashCode);
 
   @override
-  String toString() => 'FavoriteDto[id=$id, url=$url, imageUrl=$imageUrl, title=$title, validationStatus=$validationStatus]';
+  String toString() => 'FavoriteDto[id=$id, url=$url, imageUrl=$imageUrl, smallImage=$smallImage, title=$title, validationStatus=$validationStatus]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,6 +63,9 @@ class FavoriteDto {
     }
     if (imageUrl != null) {
       json[r'imageUrl'] = imageUrl;
+    }
+    if (smallImage != null) {
+      json[r'smallImage'] = smallImage;
     }
     if (title != null) {
       json[r'title'] = title;
@@ -76,6 +84,7 @@ class FavoriteDto {
         id: json[r'id'],
         url: json[r'url'],
         imageUrl: json[r'imageUrl'],
+        smallImage: json[r'smallImage'],
         title: json[r'title'],
         validationStatus: FavoriteDtoValidationStatusEnum.fromJson(json[r'validationStatus']),
     );
