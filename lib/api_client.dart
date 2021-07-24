@@ -198,6 +198,8 @@ class ApiClient {
           return IsFavoriteDto.fromJson(value);
         case 'UserDto':
           return UserDto.fromJson(value);
+        case 'UserExistsDto':
+          return UserExistsDto.fromJson(value);
         case 'UserWithFavoritesDto':
           return UserWithFavoritesDto.fromJson(value);
         case 'WebPage':

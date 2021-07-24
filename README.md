@@ -65,6 +65,7 @@ Class | Method | HTTP request | Description
 *UserControllerApi* | [**deleteLinkWithPost**](doc//UserControllerApi.md#deletelinkwithpost) | **POST** /user/{secret}/favorite/delete | Delete a link as favorite (but with a Post request)
 *UserControllerApi* | [**getUserWithFavorites**](doc//UserControllerApi.md#getuserwithfavorites) | **GET** /user/{secret} | Get the user for this secret
 *UserControllerApi* | [**isFavorite**](doc//UserControllerApi.md#isfavorite) | **POST** /user/{secret}/favorite/status | Check weather the give url is a favorite or not
+*UserControllerApi* | [**isUserExisting**](doc//UserControllerApi.md#isuserexisting) | **GET** /user/exists/{secret} | Check if a user with a specific secret exists
 *WebPageControllerApi* | [**indexNewPage**](doc//WebPageControllerApi.md#indexnewpage) | **POST** /webpage | 
 *WebPageControllerApi* | [**searchForRecipe**](doc//WebPageControllerApi.md#searchforrecipe) | **GET** /webpage | 
 
@@ -75,6 +76,7 @@ Class | Method | HTTP request | Description
  - [FavoriteUrlDto](doc//FavoriteUrlDto.md)
  - [IsFavoriteDto](doc//IsFavoriteDto.md)
  - [UserDto](doc//UserDto.md)
+ - [UserExistsDto](doc//UserExistsDto.md)
  - [UserWithFavoritesDto](doc//UserWithFavoritesDto.md)
  - [WebPage](doc//WebPage.md)
  - [WebPageUrlDto](doc//WebPageUrlDto.md)

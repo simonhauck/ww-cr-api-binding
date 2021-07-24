@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**deleteLinkWithPost**](UserControllerApi.md#deletelinkwithpost) | **POST** /user/{secret}/favorite/delete | Delete a link as favorite (but with a Post request)
 [**getUserWithFavorites**](UserControllerApi.md#getuserwithfavorites) | **GET** /user/{secret} | Get the user for this secret
 [**isFavorite**](UserControllerApi.md#isfavorite) | **POST** /user/{secret}/favorite/status | Check weather the give url is a favorite or not
+[**isUserExisting**](UserControllerApi.md#isuserexisting) | **GET** /user/exists/{secret} | Check if a user with a specific secret exists
 
 
 # **addLink**
@@ -265,6 +266,47 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **isUserExisting**
+> UserExistsDto isUserExisting(secret)
+
+Check if a user with a specific secret exists
+
+### Example 
+```dart
+import 'package:openapi/api.dart';
+
+final api_instance = UserControllerApi();
+final secret = secret_example; // String | 
+
+try { 
+    final result = api_instance.isUserExisting(secret);
+    print(result);
+} catch (e) {
+    print('Exception when calling UserControllerApi->isUserExisting: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **secret** | **String**|  | 
+
+### Return type
+
+[**UserExistsDto**](UserExistsDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

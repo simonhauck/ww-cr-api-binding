@@ -33,6 +33,7 @@ part 'model/favorite_dto.dart';
 part 'model/favorite_url_dto.dart';
 part 'model/is_favorite_dto.dart';
 part 'model/user_dto.dart';
+part 'model/user_exists_dto.dart';
 part 'model/user_with_favorites_dto.dart';
 part 'model/web_page.dart';
 part 'model/web_page_url_dto.dart';

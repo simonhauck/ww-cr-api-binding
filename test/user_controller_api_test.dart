@@ -60,5 +60,12 @@ void main() {
       // TODO
     });
 
+    // Check if a user with a specific secret exists
+    //
+    //Future<UserExistsDto> isUserExisting(String secret) async
+    test('test isUserExisting', () async {
+      // TODO
+    });
+
   });
 }

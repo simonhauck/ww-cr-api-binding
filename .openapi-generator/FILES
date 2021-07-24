@@ -7,6 +7,7 @@ doc/FavoriteUrlDto.md
 doc/IsFavoriteDto.md
 doc/UserControllerApi.md
 doc/UserDto.md
+doc/UserExistsDto.md
 doc/UserWithFavoritesDto.md
 doc/WebPage.md
 doc/WebPageControllerApi.md
@@ -27,6 +28,7 @@ lib/model/favorite_dto.dart
 lib/model/favorite_url_dto.dart
 lib/model/is_favorite_dto.dart
 lib/model/user_dto.dart
+lib/model/user_exists_dto.dart
 lib/model/user_with_favorites_dto.dart
 lib/model/web_page.dart
 lib/model/web_page_url_dto.dart
@@ -36,6 +38,7 @@ test/favorite_url_dto_test.dart
 test/is_favorite_dto_test.dart
 test/user_controller_api_test.dart
 test/user_dto_test.dart
+test/user_exists_dto_test.dart
 test/user_with_favorites_dto_test.dart
 test/web_page_controller_api_test.dart
 test/web_page_test.dart

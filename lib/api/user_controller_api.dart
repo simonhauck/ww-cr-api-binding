@@ -374,4 +374,62 @@ class UserControllerApi {
         }
     return Future<IsFavoriteDto>.value(null);
   }
+
+  /// Check if a user with a specific secret exists
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] secret (required):
+  Future<Response> isUserExistingWithHttpInfo(String secret) async {
+    // Verify required params are set.
+    if (secret == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: secret');
+    }
+
+    final path = r'/user/exists/{secret}'
+      .replaceAll('{' + 'secret' + '}', secret.toString());
+
+    Object postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
+
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// Check if a user with a specific secret exists
+  ///
+  /// Parameters:
+  ///
+  /// * [String] secret (required):
+  Future<UserExistsDto> isUserExisting(String secret) async {
+    final response = await isUserExistingWithHttpInfo(secret);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserExistsDto',) as UserExistsDto;
+        }
+    return Future<UserExistsDto>.value(null);
+  }
 }
